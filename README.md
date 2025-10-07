@@ -1,1 +1,1 @@
-This is a random Collection of solved Problems.
+This is a collection of problems that I have solved.
