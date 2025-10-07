@@ -1,28 +1,42 @@
 // In The Name of Almighty Allah
 
 #include <bits/stdc++.h>
+#include <cstddef>
 using namespace std;
 
 #define ll      			long long
 #define star    			cerr << "*\n"; 
 #define cerrV(x)            for(auto it: x) cerr << it << ' '; cerr << '\n'; 
 #define cerr(i, x)          cerr << 'i' << " = " << x << '\n';
-#define sort(x)             sort(x.begin(), x.end())
+#define all(x)              x.begin(), x.end()
+#define rall(x)             x.rbegin(), x.rend()
 #define cerrPair(x)         for(auto it: x) cerr << it.first << ' ' << it.second << '\n';
 
 void solve(){
-    ll n; cin >> n;
-    int ans = 1;
-    while (n > 1){
-        if(n&1) ans++;
-        n>>=1;
+    int n; cin >> n;
+    int cnt = 0;
+    if(n < 10){
+        cout << n << '\n';
+        return;
     }
-    cout << ans << '\n';
     
+    while(1){
+        n/=10;
+        if(n < 10){
+            cnt++;
+            break;
+        }
+        cnt++;
+    }
+    cout << n + (9*cnt) << '\n';
 }
 
 signed main(){
     std::ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
-    solve();
+    ll t;
+    cin >> t;
+    while (t--){
+        solve();
+    }
 }

@@ -7,22 +7,34 @@ using namespace std;
 #define star    			cerr << "*\n"; 
 #define cerrV(x)            for(auto it: x) cerr << it << ' '; cerr << '\n'; 
 #define cerr(i, x)          cerr << 'i' << " = " << x << '\n';
-#define sort(x)             sort(x.begin(), x.end())
+#define all(x)              x.begin(), x.end()
+#define rall(x)             x.rbegin(), x.rend()
 #define cerrPair(x)         for(auto it: x) cerr << it.first << ' ' << it.second << '\n';
+#define cerrn		        cerr << '\n';
 
 void solve(){
-    ll n; cin >> n;
-    int ans = 1;
-    while (n > 1){
-        if(n&1) ans++;
-        n>>=1;
+    int n, j, k; cin >> n >> j >> k;
+    vector<int> v(n);
+    int target;
+    for(int i = 0; i < n; i++){
+        cin >> v[i];
+        if(i+1 == j) target = v[i];
     }
-    cout << ans << '\n';
+
+    sort(all(v));
     
+    if(k < 2 and v[n-1] != target){
+        cout << "NO\n";
+    }
+    else cout << "YES\n";
 }
 
 signed main(){
     std::ios::sync_with_stdio(false);
     std::cin.tie(nullptr);
-    solve();
+    ll t;
+    cin >> t;
+    while (t--){
+        solve();
+    }
 }
